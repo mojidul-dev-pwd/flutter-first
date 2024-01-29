@@ -21,13 +21,22 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeActivity extends StatelessWidget {
-  const HomeActivity({super.key});
+  HomeActivity({super.key});
 
   MySnackBar(message, context){
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message))
     );
   }
+  
+  ButtonStyle buttonStyle=ElevatedButton.styleFrom(
+    padding: EdgeInsets.all(20),
+    backgroundColor: Colors.cyan,
+    foregroundColor: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10))
+    )
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -166,6 +175,7 @@ class HomeActivity extends StatelessWidget {
         child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
       )
          */
+      /*
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -178,6 +188,15 @@ class HomeActivity extends StatelessWidget {
           Container(
             height: 100,width: 100, child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
           )
+        ],
+      ),
+      */
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          TextButton(onPressed: (){MySnackBar("Text button Click", context);}, child: Text("Text Button")),
+          ElevatedButton(onPressed: (){MySnackBar("Elevated button Click", context);}, child: Text("Elevated Button"), style: buttonStyle,),
+          OutlinedButton(onPressed: (){MySnackBar("Outline button Click", context);}, child: Text("Outline Button"))
         ],
       ),
     );

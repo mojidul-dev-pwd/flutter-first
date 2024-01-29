@@ -150,6 +150,7 @@ class HomeActivity extends StatelessWidget {
         //child: Text("Hello PWD"),
         //child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg")
       //),
+        /*
       body: Container(
         height: 250,
         width: 250,
@@ -164,6 +165,21 @@ class HomeActivity extends StatelessWidget {
         ),
         child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
       )
+         */
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            height: 100,width: 100, child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
+          ),
+          Container(
+            height: 100,width: 100, child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
+          ),
+          Container(
+            height: 100,width: 100, child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
+          )
+        ],
+      ),
     );
   }
 

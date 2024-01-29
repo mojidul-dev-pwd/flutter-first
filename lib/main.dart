@@ -47,6 +47,15 @@ class HomeActivity extends StatelessWidget {
           IconButton(onPressed: (){MySnackBar("mojidul31@gmail.com",context);}, icon: Icon(Icons.email))
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        child: Icon(Icons.add),
+        backgroundColor: Colors.amber,
+        onPressed: (){
+          MySnackBar("Floating Action Button", context);
+        },
+      ),
+
       body: Text("Hello PWD"),
     );
   }

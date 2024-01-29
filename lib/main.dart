@@ -145,7 +145,11 @@ class HomeActivity extends StatelessWidget {
         ),
       ),
 
-      body: Text("Hello PWD"),
+      //body: Text("Hello PWD"),
+      body: Center(
+        //child: Text("Hello PWD"),
+        child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg")
+      ),
     );
   }
 

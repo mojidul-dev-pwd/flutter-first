@@ -74,7 +74,42 @@ class HomeActivity extends StatelessWidget {
           }
         },
       ),
-      
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              padding: EdgeInsets.all(0),
+                child: UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color:Colors.white),
+                  accountName: Text("Mojidul Islam", style: TextStyle(color: Colors.black),),
+                  accountEmail: Text("mojidul31@gmail.com", style: TextStyle(color: Colors.black)),
+                  //currentAccountPicture: Image.network("https://w7.pngwing.com/pngs/537/866/png-transparent-flutter-hd-logo-thumbnail.png"),
+                  currentAccountPicture: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
+                  onDetailsPressed: (){MySnackBar("This is profile details.", context);},
+                )
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title:Text("Home"),
+              onTap: (){
+                MySnackBar("Home", context);
+              },),
+            ListTile(
+              leading: Icon(Icons.email),
+              title:Text("Email"),
+              onTap: (){
+                MySnackBar("Email", context);
+              },),
+            ListTile(
+              leading: Icon(Icons.phone),
+              title:Text("Phone"),
+              onTap: (){
+                MySnackBar("Phone", context);
+              },),
+          ],
+        ),
+      ),
+
       body: Text("Hello PWD"),
     );
   }

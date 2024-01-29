@@ -146,10 +146,24 @@ class HomeActivity extends StatelessWidget {
       ),
 
       //body: Text("Hello PWD"),
-      body: Center(
+      //body: Center(
         //child: Text("Hello PWD"),
-        child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg")
-      ),
+        //child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg")
+      //),
+      body: Container(
+        height: 250,
+        width: 250,
+        alignment: Alignment.topCenter,
+        margin: EdgeInsets.all(20),
+        //margin: EdgeInsets.fromLTRB(10, 20, 20, 5),
+        padding: EdgeInsets.all(10),
+        //padding: EdgeInsets.fromLTRB(10, 20, 10, 5),
+        decoration: BoxDecoration(
+          color: Colors.blueAccent,
+          border: Border.all(color: Colors.black, width: 5)
+        ),
+        child: Image.network("http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg"),
+      )
     );
   }
 

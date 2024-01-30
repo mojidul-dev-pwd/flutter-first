@@ -63,6 +63,13 @@ class HomeActivity extends StatelessWidget {
     minimumSize: Size(double.infinity, 60)
   );
 
+  var MyItems = [
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"PWD"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Mojidul"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Nayeem"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Fatima"}
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -233,6 +240,7 @@ class HomeActivity extends StatelessWidget {
         ),
       )
       */
+      /*
       body:Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -243,6 +251,21 @@ class HomeActivity extends StatelessWidget {
 
         ],
       )
+      */
+      body: ListView.builder(
+          itemCount: MyItems.length,
+          itemBuilder: (context,index){
+            return GestureDetector(
+              //onTap: (){MySnackBar(MyItems[index]['title'], context);},
+              onDoubleTap: (){MySnackBar(MyItems[index]['title'], context);}, //type on to get varities action name
+              child: Container(
+                margin: EdgeInsets.all(10),
+                width: double.infinity,
+                height: 300,
+                child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),//for null accept use !
+              ),
+            );
+          }),
     );
   }
 

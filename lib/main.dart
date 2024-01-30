@@ -59,6 +59,10 @@ class HomeActivity extends StatelessWidget {
     )
   );
 
+  ButtonStyle buttonStyle2=ElevatedButton.styleFrom(
+    minimumSize: Size(double.infinity, 60)
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -222,10 +226,22 @@ class HomeActivity extends StatelessWidget {
         ],
       ),
       */
+      /*
       body: Center(
         child: ElevatedButton(
           child: Text("Click Me"),onPressed: (){MyAlertDialog(context);},
         ),
+      )
+      */
+      body:Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(padding: EdgeInsets.all(15), child: TextField(decoration: InputDecoration(border:OutlineInputBorder(),labelText: 'First Name'))),
+          Padding(padding: EdgeInsets.all(15), child: TextField(decoration: InputDecoration(border:OutlineInputBorder(),labelText: 'Last Name'))),
+          Padding(padding: EdgeInsets.all(15), child: TextField(decoration: InputDecoration(border:OutlineInputBorder(),labelText: 'Email'))),
+          Padding(padding: EdgeInsets.all(15), child: ElevatedButton(onPressed:(){}, child: Text("Submit"), style: buttonStyle2))
+
+        ],
       )
     );
   }

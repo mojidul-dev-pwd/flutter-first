@@ -28,6 +28,27 @@ class HomeActivity extends StatelessWidget {
       SnackBar(content: Text(message))
     );
   }
+
+  MyAlertDialog(context){
+    return showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return Expanded(
+              child: AlertDialog(
+                title: Text("Alert!"),
+                content: Text("Do you want to delete?"),
+                actions: [
+                  TextButton(onPressed: (){
+                    MySnackBar("You click Yes", context);
+                    Navigator.of(context).pop();
+                  }, child: Text("Yes")),
+                  TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text("No")),
+                ],
+              )
+          );
+        }
+    );
+  }
   
   ButtonStyle buttonStyle=ElevatedButton.styleFrom(
     padding: EdgeInsets.all(20),
@@ -191,6 +212,7 @@ class HomeActivity extends StatelessWidget {
         ],
       ),
       */
+      /*
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -199,6 +221,12 @@ class HomeActivity extends StatelessWidget {
           OutlinedButton(onPressed: (){MySnackBar("Outline button Click", context);}, child: Text("Outline Button"))
         ],
       ),
+      */
+      body: Center(
+        child: ElevatedButton(
+          child: Text("Click Me"),onPressed: (){MyAlertDialog(context);},
+        ),
+      )
     );
   }
 

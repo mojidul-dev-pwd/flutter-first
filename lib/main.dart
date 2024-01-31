@@ -67,6 +67,13 @@ class HomeActivity extends StatelessWidget {
     {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"PWD"},
     {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Mojidul"},
     {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Nayeem"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Fatima"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"PWD"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Mojidul"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Nayeem"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Fatima"},{"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"PWD"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Mojidul"},
+    {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Nayeem"},
     {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Fatima"}
   ];
 
@@ -252,6 +259,7 @@ class HomeActivity extends StatelessWidget {
         ],
       )
       */
+      /*
       body: ListView.builder(
           itemCount: MyItems.length,
           itemBuilder: (context,index){
@@ -266,6 +274,25 @@ class HomeActivity extends StatelessWidget {
               ),
             );
           }),
+      */
+        body: GridView.builder(itemCount: MyItems.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,//number of column shows
+              crossAxisSpacing: 0,
+              childAspectRatio: 1.1
+            ),
+            itemBuilder: (context,index){
+              return GestureDetector(
+                onTap: (){MySnackBar(MyItems[index]['title'], context);},
+                //onDoubleTap: (){MySnackBar(MyItems[index]['title'], context);}, //type on to get varities action name
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  width: double.infinity,
+                  height: 300,
+                  child: Image.network(MyItems[index]['img']!, fit: BoxFit.fill,),//for null accept use !
+                ),
+              );
+            }),
     );
   }
 

@@ -103,6 +103,9 @@ class HomeActivity extends StatelessWidget {
           ElevatedButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity2("Come from Home to activity 2")));
           }, child: Text("Activity 2")),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>CardActivity()));
+          }, child: Text("Card")),
         ],
       ),
     );
@@ -416,6 +419,37 @@ class PageActivity2 extends StatelessWidget{
         Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity1("Come from PageActivity2 to PageActivity1")));
       }, child: Text('Go Text Activity 1'),),
     ),
+    );
+  }
+}
+
+class CardActivity extends StatelessWidget{
+
+  CardActivity({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Card Test"),
+      ),
+      body: Center(
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100)//for round 100
+          ),
+          //color: Color.fromARGB(33, 191, 115, 1), //best
+          color: Colors.green,
+          shadowColor: Colors.greenAccent,
+          //shape: OutlineInputBorder(),
+          elevation: 80,
+          child: SizedBox(
+            height: 200,
+            width: 200,
+            child: Center(child: Text("Card Ready"),),
+          ),
+        ),
+      )
     );
   }
 }

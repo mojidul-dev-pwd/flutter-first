@@ -98,10 +98,10 @@ class HomeActivity extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity1()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity1("Come from Home to activity 1")));
           }, child: Text("Activity 1")),
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity2()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity2("Come from Home to activity 2")));
           }, child: Text("Activity 2")),
         ],
       ),
@@ -376,15 +376,22 @@ class HomeActivity extends StatelessWidget {
 //}
 
 class PageActivity1 extends StatelessWidget{
+
+  String msg;
+  PageActivity1(
+    this.msg,
+    {super.key}
+  );
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("Page 1"),
+        title: Text(msg),
       ),
       body: Center(
         child: ElevatedButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity2()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity2("from PageActivity1 to PageActivity2")));
         }, child: Text('Go Text Activity 2'),),
       ),
     );
@@ -392,15 +399,21 @@ class PageActivity1 extends StatelessWidget{
 }
 
 class PageActivity2 extends StatelessWidget{
+
+  String msg;
+  PageActivity2(
+      this.msg,
+      {super.key});
+
   @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("Page 2"),
+        title: Text(msg),
       ),
       body: Center(
       child: ElevatedButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity1()));
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity1("Come from PageActivity2 to PageActivity1")));
       }, child: Text('Go Text Activity 1'),),
     ),
     );

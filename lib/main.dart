@@ -1,4 +1,14 @@
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'Fragment/AlarmFragment.dart';
+import 'Fragment/BalanceFragment.dart';
+import 'Fragment/ContactFragment.dart';
+import 'Fragment/EmailFragment.dart';
+import 'Fragment/HomeFragment.dart';
+import 'Fragment/PersonFragment.dart';
+import 'Fragment/SearchFragment.dart';
+import 'Fragment/SettingsFragment.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,8 +87,49 @@ class HomeActivity extends StatelessWidget {
     {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Fatima"}
   ];
 
+  //tab bar
   @override
   Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 8,
+      child: Scaffold(
+        appBar: AppBar(
+        title: Text("My AppBar.."),
+          bottom: TabBar(
+            isScrollable: true,
+            tabs: [
+              Tab(icon: Icon(Icons.home),text: "Home"),
+              Tab(icon: Icon(Icons.search),text: "Search"),
+              Tab(icon: Icon(Icons.settings),text: "Settings"),
+              Tab(icon: Icon(Icons.email),text: "Email"),
+              Tab(icon: Icon(Icons.contact_mail),text: "Contact Mail"),
+              Tab(icon: Icon(Icons.person),text: "Person"),
+              Tab(icon: Icon(Icons.access_alarm),text: "Access Alarm"),
+              Tab(icon: Icon(Icons.account_balance),text: "Account Balance")
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            HomeFragment(),
+            SearchFragment(),
+            SettingsFragment(),
+            EmailFragment(),
+            ContactFragment(),
+            PersonFragment(),
+            AlarmFragment(),
+            BalanceFragment()
+          ],
+        ),
+      ),
+    );
+  }
+
+//app bar
+  /*
+  @override
+  Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("My AppBar.."),
@@ -157,6 +208,7 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
+
       endDrawer: Drawer(
         child: ListView(
           children: [
@@ -192,7 +244,7 @@ class HomeActivity extends StatelessWidget {
           ],
         ),
       ),
-
+      */
       //body: Text("Hello PWD"),
       //body: Center(
         //child: Text("Hello PWD"),
@@ -275,6 +327,7 @@ class HomeActivity extends StatelessWidget {
             );
           }),
       */
+        /*
         body: GridView.builder(itemCount: MyItems.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,//number of column shows
@@ -293,8 +346,9 @@ class HomeActivity extends StatelessWidget {
                 ),
               );
             }),
-    );
+      */
+    //);
   }
 
-}
+//}
 

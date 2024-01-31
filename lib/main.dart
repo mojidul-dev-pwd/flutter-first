@@ -87,7 +87,30 @@ class HomeActivity extends StatelessWidget {
     {"img":"http://dpp.pwdsoft.org/assets/media/avatars/300-1.jpg","title":"Fatima"}
   ];
 
-  //tab bar
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity1()));
+          }, child: Text("Activity 1")),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity2()));
+          }, child: Text("Activity 2")),
+        ],
+      ),
+    );
+  }
+
+
+//tab bar
+  /*
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -124,7 +147,7 @@ class HomeActivity extends StatelessWidget {
       ),
     );
   }
-
+  */
 //app bar
   /*
   @override
@@ -351,4 +374,36 @@ class HomeActivity extends StatelessWidget {
   }
 
 //}
+
+class PageActivity1 extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Page 1"),
+      ),
+      body: Center(
+        child: ElevatedButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity2()));
+        }, child: Text('Go Text Activity 2'),),
+      ),
+    );
+  }
+}
+
+class PageActivity2 extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Page 2"),
+      ),
+      body: Center(
+      child: ElevatedButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>PageActivity1()));
+      }, child: Text('Go Text Activity 1'),),
+    ),
+    );
+  }
+}
 
